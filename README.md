@@ -12,6 +12,7 @@ Si bien la aplicación de MediaWiki está en PHP, es muy poco lo que se programa
 Todas estas extensiones tienen sus propias instrucciones de configuración dentro de `LocalSettings.php`, y algunas unos comandos dentro del `Dockerfile`. Si desean utilizar más extensiones, recuerden siempre utilizar las versiones **1.32** de las mismas.
 
 ### Pruebas preliminares
+#### Prueba cero
 Para probar MediaWiki en su estado más puro podemos levantar un contenedor de Docker haciendo:   
 `docker run --name prueba-mediawiki -p 8080:80 mediawiki:1.32`   
 y navegar a [http://localhost:8080/](http://localhost:8080/) (van a tener que elegir SQLite como base de datos).
@@ -19,29 +20,34 @@ y navegar a [http://localhost:8080/](http://localhost:8080/) (van a tener que el
 Una vez completado el asistente de instalación deben bajarse el archivo `LocalSetting.php` generado y copiarlo al contenedor. Por ejemplo si el archivo se descargó en `~/Downloads/`, haríamos:   
 `docker cp ~/Downloads/LocalSettings.php prueba-mediawiki:/var/www/html/`
 
-### Prueba con base de datos volátil
+#### Prueba con base de datos volátil
 Debido a que el contenedor de MediaWiki al levantarse busca instantáneamente conectarse a la base de datos y esta requiere un mínimo de configuración antes de ser utilizada, nos resultó más fácil separar el contenedor de MySql del resto. De esta forma, al correr el contenedor de MediaWiki, la base de datos ya esta lista para recibir la conexión.
 
 Para probar este sistema con una base de datos volátil pueden crear un contenedor de MySql:   
-`docker run --name mysql --network red-mediawiki -eMYSQL_ROOT_PASSWORD=iF8D53Lovy6Js3 mysql:5.7`
+`docker run --name mysql --network red-wiki-prueba -eMYSQL_ROOT_PASSWORD=N44PvQGLbQqCW4ddq8Ng mysql:5.7`
 
 Después conectarse a la consola `mysql` del contenedor:   
-`docker exec -it mysql mysql -piF8D53Lovy6Js3`
+`docker exec -it mysql mysql -pN44PvQGLbQqCW4ddq8Ng`
 
 Crear la base de datos y unx usuarix para la misma:   
 `CREATE DATABASE mediawikidb;`   
-`GRANT ALL PRIVILEGES ON mediawikidb.* TO 'mediawiki747895'@'%' IDENTIFIED BY 'kjavjkKL2949JDFJK757ysd82487';`
+`GRANT ALL PRIVILEGES ON mediawikidb.* TO '6uJ5bkUE6cTZNU2LEbAw'@'%' IDENTIFIED BY 'GveN36tyUuRTG9XSyhwJ';`
 
 Y posteriormente levantar el Compose: `docker-compose up`
 
-Si toda va bien, deberían poder acceder a la wiki vía [http://localhost:8020/](http://localhost:8020/).
+Si toda va bien, deberían poder acceder a la wiki vía [http://localhost:8020/](http://localhost:8020/), y acceder a la cuenta de administración con las credenciales `admin`/`tTBjPXMMUzu9c3enjZqM`
 
 La mayoría de los parámetros usados en estos comandos tienen que corresponderse con las variables de entorno definidas en [`docker-compose.yml`](docker-compose.yml)
 
 -----
+
+
 -----
+
+
 -----
-*docu vieja*
+
+**documentación vieja**
 
 
 Para usar simplemente hacer `docker-compose up` dentro de la carpeta del proyecto.
