@@ -9,31 +9,42 @@ services:
         ports:
             - 8020:80
         environment:
+            # url pública de la wiki
             - MW_SITE_SERVER=http://localhost:8020
-            - MW_DB_SERVER=cc-mysql
+            # url del servidor mysql
+            - MW_DB_SERVER=mysql
             - MW_DB_TYPE=mysql
+            # nombre de la base de datos dentro del mysql (previamente creada)
             - MW_DB_NAME=mediawikidb
-            - MW_DB_INSTALLDB_USER=mediawiki747895
-            - MW_DB_INSTALLDB_PASS=kjavjkKL2949JDFJK757ysd82487
-            - MW_DB_USER=mediawiki747895
-            - MW_DB_PASSWORD=kjavjkKL2949JDFJK757ysd82487
-            - MW_WEB_PATH=/w
+            # usuarix y contraseña con permisos sobre la base de datos anterior
+            - MW_DB_INSTALLDB_USER=6uJ5bkUE6cTZNU2LEbAw
+            - MW_DB_INSTALLDB_PASS=GveN36tyUuRTG9XSyhwJ
+            - MW_DB_USER=6uJ5bkUE6cTZNU2LEbAw
+            - MW_DB_PASSWORD=GveN36tyUuRTG9XSyhwJ
+            # nombre y contraseña del usuarix admin inicial de la wiki
             - MW_ADMIN_USER=admin
-            - MW_ADMIN_PASS=123123123
+            - MW_ADMIN_PASS=tTBjPXMMUzu9c3enjZqM
+            - MW_WEB_PATH=/w
             - MW_SEC_KEY=dbd138b56512b048ee9c22b351a1bba10860d51257222ee312d857a65a1daa99
             - MW_SITE_LANG=es
             - MW_SITE_NAME=Wiki Causas Comunes
             - PHP_ERROR_REPORTING=E_ALL #dev
             #- PHP_ERROR_REPORTING=E_ALL & ~E_DEPRECATED & ~E_STRICT #prod
+            # url de servidor parsoid
             - MW_PARSOID_URL=http://parsoid:8000
+            # dominio del servidor wiki como visto desde el parsoid
             - MW_PARSOID_WIKI_DOMAIN=web
-            - MW_NOTIFY_USERS=Admin,AgustinFrizzera,ValeLisciani
+            # nombres de usuarixs que recibiran notificaciones de interacciones en la wiki
+            - MW_NOTIFY_USERS=Admin,NombreDeUsuarx1,NombreDeUsuarx2
     parsoid:
         image: thenets/parsoid:0.10
         restart: on-failure
         environment:
+            # url a la api de la wiki; el nombre de esta variable termina en _<host de la wiki>
             - PARSOID_DOMAIN_web=http://web/api.php
+
+# esta es la red de prueba a la que se tendría que conectar el servidor mysql
 networks:
     default:
         external:
-            name: CC-DEPLOY
+            name: red-wiki-prueba
