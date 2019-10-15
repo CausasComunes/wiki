@@ -33,7 +33,7 @@ Después conectarse a la consola `mysql` del contenedor:
 
 Crear la base de datos y unx usuarix para la misma:   
 ```
-CREATE DATABASE mediawikidb;`   
+CREATE DATABASE mediawikidb;
 GRANT ALL PRIVILEGES ON mediawikidb.* TO '6uJ5bkUE6cTZNU2LEbAw'@'%' IDENTIFIED BY 'GveN36tyUuRTG9XSyhwJ';
 ```
 
@@ -41,7 +41,9 @@ Y posteriormente levantar el Compose: `docker-compose up`
 
 Si toda va bien, deberían poder acceder a la wiki vía [http://localhost:8020/](http://localhost:8020/), y acceder a la cuenta de administración con las credenciales `admin`/`tTBjPXMMUzu9c3enjZqM`
 
-La mayoría de los parámetros usados en estos comandos tienen que corresponderse con las variables de entorno definidas en [`docker-compose.yml`](docker-compose.yml)
+(la mayoría de los parámetros usados en estos comandos tienen que corresponderse con las variables de entorno definidas en [`docker-compose.yml`](docker-compose.yml))
+
+Finalmente deben cargar los estilos personalizados. Para esto hay que ir a [index.php/Especial:Importar](http://localhost:8020/index.php/Especial:Importar), seleccionar el archivo [`Common-css.xml`](Common-css.xml), poner "mw" en el campo "Prefijo de interwiki" e importar. Y listo!
 
 ### Algunas configuraciones útiles
 
