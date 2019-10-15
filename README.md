@@ -11,8 +11,7 @@ Si bien la aplicación de MediaWiki está en PHP, es muy poco lo que se programa
 
 Todas estas extensiones tienen sus propias instrucciones de configuración dentro de `LocalSettings.php`, y algunas unos comandos dentro del `Dockerfile`. Si desean utilizar más extensiones, recuerden siempre utilizar las versiones **1.32** de las mismas.
 
-### Pruebas preliminares
-#### Prueba cero
+### Prueba preliminar
 Para probar MediaWiki en su estado más puro podemos levantar un contenedor de Docker haciendo:   
 `docker run --name prueba-mediawiki -p 8080:80 mediawiki:1.32`   
 y navegar a [http://localhost:8080/](http://localhost:8080/) (van a tener que elegir SQLite como base de datos en el asistente de instalación).
@@ -20,7 +19,7 @@ y navegar a [http://localhost:8080/](http://localhost:8080/) (van a tener que el
 Una vez completada la instalación deben bajarse el archivo `LocalSetting.php` generado y copiarlo al contenedor. Por ejemplo si el archivo se descargó en `~/Downloads/`, haríamos:   
 `docker cp ~/Downloads/LocalSettings.php prueba-mediawiki:/var/www/html/`
 
-#### Prueba con base de datos volátil
+### Prueba de nuestra MediaWiki con base de datos volátil
 Debido a que el contenedor de MediaWiki al levantarse busca instantáneamente conectarse a la base de datos y esta requiere un mínimo de configuración antes de ser utilizada, nos resultó más fácil separar el contenedor de MySql del resto. De esta forma, al correr el contenedor de MediaWiki, la base de datos ya esta lista para recibir la conexión.
 
 Para probar nuestra MediaWiki con una base de datos volátil deben crear una red local de Docker y un contenedor de MySql:   
