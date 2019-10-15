@@ -46,7 +46,7 @@ La mayoría de los parámetros usados en estos comandos tienen que corresponders
 ### Algunas configuraciones útiles
 
 #### Volúmenes del contenedor de MediaWiki
-La MediaWiki almacena las imágenes subidas por lxs usuarixs en la carpeta `/var/www/html/images`, con lo cual convendría hacerle un volumen a dicho directorio para no perder las imágenes en caso de rebuildeo/redeploy del contenedor. Los artículos, su contenido, lxs usuarixs registradxs y demás cosas se guarda en la BBDD.
+La MediaWiki almacena las imágenes subidas por lxs usuarixs en la carpeta `/var/www/html/images`, con lo cual convendría hacerle un volumen a dicho directorio para no perder las imágenes en caso de rebuildeo/redeploy del contenedor. Los artículos, su contenido, lxs usuarixs registradxs y demás datos se guardan en la BBDD.
 
 #### Activar modo debug (reporte de errores)
 
