@@ -23,8 +23,11 @@ Una vez completada la instalación deben bajarse el archivo `LocalSetting.php` g
 #### Prueba con base de datos volátil
 Debido a que el contenedor de MediaWiki al levantarse busca instantáneamente conectarse a la base de datos y esta requiere un mínimo de configuración antes de ser utilizada, nos resultó más fácil separar el contenedor de MySql del resto. De esta forma, al correr el contenedor de MediaWiki, la base de datos ya esta lista para recibir la conexión.
 
-Para probar este sistema con una base de datos volátil pueden crear un contenedor de MySql:   
-`docker run --name mysql-mediawiki --network red-wiki-prueba -eMYSQL_ROOT_PASSWORD=N44PvQGLbQqCW4ddq8Ng mysql:5.7`
+Para probar nuestra MediaWiki con una base de datos volátil deben crear una red local de Docker y un contenedor de MySql:   
+```
+docker network create red-wiki-prueba
+docker run --name mysql-mediawiki --network red-wiki-prueba -eMYSQL_ROOT_PASSWORD=N44PvQGLbQqCW4ddq8Ng mysql:5.7
+```
 
 Después conectarse a la consola `mysql` del contenedor:   
 `docker exec -it mysql-mediawiki mysql -pN44PvQGLbQqCW4ddq8Ng`
