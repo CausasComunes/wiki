@@ -1,0 +1,161 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="es">
+  <siteinfo>
+    <sitename>Wiki Causas Comunes</sitename>
+    <dbname>mediawiki</dbname>
+    <base>https://diagnostico.causascomunes.org/index.php/P%C3%A1gina_principal</base>
+    <generator>MediaWiki 1.32.2</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Medio</namespace>
+      <namespace key="-1" case="first-letter">Especial</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Discusión</namespace>
+      <namespace key="2" case="first-letter">Usuario</namespace>
+      <namespace key="3" case="first-letter">Usuario discusión</namespace>
+      <namespace key="4" case="first-letter">Wiki Causas Comunes</namespace>
+      <namespace key="5" case="first-letter">Wiki Causas Comunes discusión</namespace>
+      <namespace key="6" case="first-letter">Archivo</namespace>
+      <namespace key="7" case="first-letter">Archivo discusión</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki discusión</namespace>
+      <namespace key="10" case="first-letter">Plantilla</namespace>
+      <namespace key="11" case="first-letter">Plantilla discusión</namespace>
+      <namespace key="12" case="first-letter">Ayuda</namespace>
+      <namespace key="13" case="first-letter">Ayuda discusión</namespace>
+      <namespace key="14" case="first-letter">Categoría</namespace>
+      <namespace key="15" case="first-letter">Categoría discusión</namespace>
+      <namespace key="2600" case="first-letter">Tema</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>MediaWiki:Common.css</title>
+    <ns>8</ns>
+    <id>11</id>
+    <revision>
+      <id>190</id>
+      <parentid>163</parentid>
+      <timestamp>2019-08-07T15:52:46Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>1</id>
+      </contributor>
+      <model>css</model>
+      <format>text/css</format>
+      <text xml:space="preserve" bytes="3868">/* Los estilos CSS colocados aquí se aplicarán a todas las apariencias */
+
+/* esconder "Herramientas wiki" */
+#site-tools {display:none;}
+
+/* esconder "Herramientas de página" */
+#p-cactions {display:none;}
+
+/* esconder "Más" salvo "Versión para imprimir" */
+#p-pagemisc li {display:none;}
+#p-pagemisc li#t-print {display:list-item;}
+
+/* esconder "Editar código" en namespace 0 */
+body.ns-0 #ca-edit {display:none;}
+
+/* esconder "Categorías" */
+#catlinks-sidebar {display:none;}
+
+/* ícono menú hamburguesa */
+#site-navigation h2 {background-image: url(/images/icons/CausasComunes_Menu_Small.png);}
+/* fix bug  */
+@media screen and (min-width: 851px) and (max-width: 1099px) {
+  #site-navigation h2 {background-image: none;}
+}
+
+/* ícono usuarie */
+#personal h2 {background-image: url(/images/icons/CausasComunes_Usuarie_Small.png);}
+
+/* ícono notificaciones normales */
+#pt-notifications-notice .mw-echo-notifications-badge::before {
+  /*background-image: url(/images/icons/CausasComunes_Bandeja_Small.png);*/
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Ctitle%3E tray %3C/title%3E %3Cpath d=%22M17 1H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm0 12h-4l-1 2H8l-1-2H3V3h14z%22/%3E %3C/svg%3E");
+  background-size: 19px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.35;
+}
+#pt-notifications-notice .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read {opacity:1;}
+/* fix bug  */
+#pt-notifications-notice .mw-echo-notifications-badge::before {top:1002px;}
+@media screen and (min-width: 851px) {
+  #pt-notifications-notice .mw-echo-notifications-badge::before {top:1005px;}
+}
+
+/* ícono paginas modificadas */
+#pt-notifications-alert .mw-echo-notifications-badge::before {
+  background-image: url(/images/icons/CausasComunes_Notificación_Small.png);
+  width: 25px;
+  height: 25px;
+  opacity: 1;
+}
+#pt-notifications-alert .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read {opacity:1;}
+/* fix bug  */
+@media screen and (min-width: 851px) {
+  #pt-notifications-alert .mw-echo-notifications-badge::before {top:1002px;}
+}
+
+/* no me pasaron in ícono de search que pueda ir bien, modifico el que está */
+/*#searchButton {background-image: url(/images/icons/CausasComunes_Busqueda_Small.png);}*/
+#searchButton, #mw-searchButton {opacity:0.4;}
+
+/* logo */
+#p-banner {
+  height: 35.2667px;
+  color: transparent !important;
+}
+#p-logo-text {
+  background-image: url(images/icons/logo-wiki.png);
+  background-repeat: no-repeat;
+  background-size: 204px 35px;
+}
+@media screen and (min-width: 1099px) {
+  #p-logo-text {background-position-x: center;}
+}
+
+/* sacar gatito marca de agua que viene con el skin */
+#mw-content-container {background-image:none;}
+
+/* fonts generales */
+@font-face {
+  font-family:'Barlow';
+  src: url(images/icons/Barlow-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family:'Barlow';
+  src: url(images/icons/Barlow-Medium.ttf) format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family:'Barlow';
+  src: url(images/icons/Barlow-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+}
+body{
+  font-family:'Barlow', sans-serif;
+}
+.mw-body h1, .mw-body h2, .mw-body h3, .mw-body h4, .mw-body h5, .mw-body h6, .mw-body dt {
+  font-family:'Barlow', sans-serif;
+}
+
+/* footer (usa el bgcolor del body) */
+body {background: #f3f3f3;}
+#mw-footer-container li, #mw-footer-container a {color:black;}
+#mw-content-container {border-bottom: solid 4px #900;}
+
+/* bloques de código utilizados para dar avisos tipo MAS DATOS o FUENTE (la segunda regla es para el visualeditor) */
+#mw-content-text code, #bodyContent code {
+  background-color: #eadd7f;background-color: #e6c94d;
+  /*font-weight: bold;*/
+  border-color: white;
+  border-radius: 20px;
+  padding: 1px 7px;
+}</text>
+      <sha1>bdtzb7jlduix8mq70sa4tnfy928pk2w</sha1>
+    </revision>
+  </page>
+</mediawiki>
