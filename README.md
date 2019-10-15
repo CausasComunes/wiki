@@ -50,4 +50,16 @@ Si en algún momento desean debugear un error, agregar la ssiguientes líneas a 
 $wgDebugToolbar = true;
 $wgShowDebug = true;
 $wgDevelopmentWarnings = true;
-$wgDebugLogFile = "/tmp/{$wgSitename}-debug.log";```
+$wgDebugLogFile = "/tmp/{$wgSitename}-debug.log";
+```
+
+#### Agregar estilos (css) globales
+Editar el archivo [index.php/MediaWiki:Common.css](http://localhost:8020/index.php/MediaWiki:Common.css)
+
+#### Editar panel de navegación
+Para editar el panel lateral de "Navegación" hay que entrar a la página [index.php?title=MediaWiki:Sidebar&action=edit](http://localhost:8020/index.php?title=MediaWiki:Sidebar&action=edit)
+
+#### Tutoriales oficiales
+Algunas configuraciones comunes: [mediawiki.org/wiki/Manual:LocalSettings.php](https://www.mediawiki.org/wiki/Manual:LocalSettings.php)   
+Listado completo de configuraciones: [mediawiki.org/wiki/Manual:Configuration_settings](https://www.mediawiki.org/wiki/Manual:Configuration_settings)   
+Tutoriales sobre uso y funcionamiento de MediaWiki: [mediawiki.org/wiki/Help:Contents](https://www.mediawiki.org/wiki/Help:Contents)   
