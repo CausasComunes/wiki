@@ -32,8 +32,10 @@ Después conectarse a la consola `mysql` del contenedor:
 `docker exec -it mysql-mediawiki mysql -pN44PvQGLbQqCW4ddq8Ng`
 
 Crear la base de datos y unx usuarix para la misma:   
-`CREATE DATABASE mediawikidb;`   
-`GRANT ALL PRIVILEGES ON mediawikidb.* TO '6uJ5bkUE6cTZNU2LEbAw'@'%' IDENTIFIED BY 'GveN36tyUuRTG9XSyhwJ';`
+```
+CREATE DATABASE mediawikidb;`   
+GRANT ALL PRIVILEGES ON mediawikidb.* TO '6uJ5bkUE6cTZNU2LEbAw'@'%' IDENTIFIED BY 'GveN36tyUuRTG9XSyhwJ';
+```
 
 Y posteriormente levantar el Compose: `docker-compose up`
 
