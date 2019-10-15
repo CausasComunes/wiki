@@ -12,7 +12,7 @@ services:
             # url pública de la wiki
             - MW_SITE_SERVER=http://localhost:8020
             # url del servidor mysql
-            - MW_DB_SERVER=mysql
+            - MW_DB_SERVER=mysql-mediawiki
             - MW_DB_TYPE=mysql
             # nombre de la base de datos dentro del mysql (previamente creada)
             - MW_DB_NAME=mediawikidb
