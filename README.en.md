@@ -3,7 +3,7 @@ This software is based on [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki/e
 It also uses the [VisualEditor](https://www.mediawiki.org/wiki/Extension:VisualEditor) extension to enable a visual editor, like *office* ones, for its articles. This requires a Node.js server with [Parsoid](https://www.mediawiki.org/wiki/Parsoid). All this is an easy task if you use Docker. Fortunately,  MediaWiki has an [official DockerHub image](https://hub.docker.com/_/mediawiki). Due to extension compatibilities we use version **1.32.2** of it, as you can see in the [`Dockerfile`](Dockerfile). For the Parsoid server we use [thenets/parsoid](https://hub.docker.com/r/thenets/parsoid/) version **0.10**.
 
 ### Configuring MediaWiki
-Thou MediaWiki is written in PHP, very little knowledge of it is required to be able to configure or modify MediaWiki.  Where is most used is in [`LocalSettings.php`](LocalSettings.php) configuration file. This file is created automatically the first time MediaWiki is installed, after you complete the installation wizard. We have added some custom configuration, starting from line *142* of the file just mentioned. The extensions we have added to our MediaWiki are:
+Thou MediaWiki is written in PHP, very little knowledge of it is required to be able to configure or modify MediaWiki.  Where PHP is most used is in [`LocalSettings.php`](LocalSettings.php) configuration file. This file is created automatically the first time MediaWiki is installed, after you complete the installation wizard. We have added some custom configuration, starting from line *142* of the file just mentioned. The extensions we have added to our MediaWiki are:
 - [VisualEditor](https://www.mediawiki.org/wiki/Extension:VisualEditor): *office*-like article editor
 - [TemplateStyles](https://www.mediawiki.org/wiki/Extension:TemplateStyles): gives the possibility to add css styles inside [templates](https://www.mediawiki.org/wiki/Help:Templates) (which basically are reusable html snippets),
 - [Flow](https://www.mediawiki.org/wiki/Extension:Flow): for customizing discussion pages, making it more user friendly and modern.
@@ -53,7 +53,7 @@ MediaWiki saves uploaded images in the folder `/var/www/html/images`. We have to
 
 #### Activating debug mode (with detailed error reporting)
 
-If you wish to debug some error in the application, add the following lines in `LocalSettings.php` (you can edit directly this file connection to the container’s console and using the `nano` editor):
+If you wish to debug some error in the application, add the following lines in `LocalSettings.php` (you can edit directly this file connecting to the container’s console and using the `nano` editor):
 ```$wgShowExceptionDetails = true;
 $wgDebugToolbar = true;
 $wgShowDebug = true;
